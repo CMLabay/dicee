@@ -11,15 +11,21 @@ import UIKit
 class ViewController: UIViewController {
 
     @IBOutlet weak var diceImageView1: UIImageView!
-    
     @IBOutlet weak var diceImageView2: UIImageView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-//this is a comment
-        diceImageView1.image = #imageLiteral(resourceName: "DiceSix")
-        diceImageView2.image = #imageLiteral(resourceName: "DiceThree")
     }
 
+    @IBAction func rollButtonPressed(_ sender: UIButton) {
+        print("Button got pressed.")
+        
+        let diceArr = [ #imageLiteral(resourceName: "DiceOne"), #imageLiteral(resourceName: "DiceTwo"), #imageLiteral(resourceName: "DiceThree"), #imageLiteral(resourceName: "DiceFour"), #imageLiteral(resourceName: "DiceFive"), #imageLiteral(resourceName: "DiceSix") ]
+        
+        //Int.random(in: 0...5) will do the same thing but is def uglier.
+        diceImageView1.image = diceArr.randomElement()
+        diceImageView2.image = diceArr.randomElement()
 
+    }
 }
 
